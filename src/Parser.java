@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Parser {
     private static String downloadData (String s) throws Exception {
         URL url = new URL (s);
@@ -34,8 +35,6 @@ public class Parser {
 
         // New useful data found in tempHolder will be appended to the start of the list
         content.add (0, "");
-
-//        System.out.println(tempHolder.size() + " lines of data found");
 
         int count = 0;
 
@@ -73,10 +72,6 @@ public class Parser {
             content.remove (0);
         }
 
-//        System.out.println(content.size() + count + " keys found");
-//        System.out.println ("removed " + count + " entries after vc");
-//        System.out.println(content.size() + " valid keys found");
-
         return content;
     }
 
@@ -109,34 +104,9 @@ public class Parser {
             val = String.join ("&", t).replaceAll ("_", " ").toLowerCase();
 
             data.add (new String [] {key, val});
-
-//            System.out.println(key + ":" + val);
         }
 
         return data;
-
-            /*
-            String o = "";
-
-                    if (tempHolder.get(i).startsWith ("KEY")) {
-                        o = tempHolder.get(i).trim().replaceAll ("KEY: ", "").replaceAll ("[^a-zA-z- ]}", "").replaceAll("\\.", "");
-
-                        System.out.println("key o: " + o);
-                    }
-                    else if (tempHolder.get (i).startsWith ("ANT")) {
-                        List <String> t = new ArrayList<>(Arrays.asList(tempHolder.get (i).trim().replaceAll ("ANT: ", "").replaceAll("[^a-zA-Z{} ]]", "").replaceAll (",", "").replaceAll ("\\.", "").split (" ")));
-
-                        for (int j = 0; j < t.size(); j = j + i) {
-                            if (t.get (j).contains ("{") || t.get (j).contains ("}")) {
-                                t.remove(j);
-                            }
-                        }
-
-                        o = String.join (".", t).replaceAll ("", "");
-
-                        System.out.println("ant o: " + o);
-                    }
-            */
     }
 
     public static List <String []> getData(String url) {
